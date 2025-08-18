@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react'
 
 type AnimatedTextProps = {
   lines: string[]
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof HTMLElementTagNameMap
   className?: string
   delayPerLineMs?: number
   delayPerWordMs?: number
