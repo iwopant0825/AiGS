@@ -1,9 +1,12 @@
 import { Link, NavLink, Route, Routes } from 'react-router-dom'
+import AnimatedText from './components/AnimatedText'
+import ViewportCalibrate from './components/ViewportCalibrate'
+import Solutions from './pages/Solutions'
 import './App.css'
 
 function GlassNav() {
   return (
-    <header className="nav">
+    <header className="nav" id="site-header">
       <div className="nav__inner">
         <Link to="/" className="brand">
           <img src="/AiGS.svg" alt="AiGS" className="brand__logo" />
@@ -26,7 +29,11 @@ function Hero() {
     <section id="hero" className="hero">
       <div className="hero__bg" />
       <div className="hero__content">
-        <h1 className="hero__title">Where Climate Action Meets Innovation.</h1>
+        <AnimatedText
+          as="h1"
+          className="hero__title"
+          lines={["Where Climate Action", "Meets Innovation."]}
+        />
         <div className="hero__cta">
           <a href="#intro" className="btn btn--primary">Explore Solutions</a>
           <a href="#about-intro" className="btn btn--ghost">Learn About AiGS</a>
@@ -39,7 +46,19 @@ function Hero() {
 function IntroSection() {
   return (
     <section id="intro" className="intro">
-      <p className="intro__lead">We deliver data-driven solutions and ESG certification to tackle climate inequality and shape a sustainable future</p>
+      <div className="intro__leadwrap">
+        <AnimatedText
+          as="p"
+          className="intro__lead"
+          lines={[
+            'We deliver data-driven solutions',
+            'and ESG certification to tackle climate inequality',
+            'and shape a sustainable future',
+          ]}
+          delayPerLineMs={300}
+          delayPerWordMs={30}
+        />
+      </div>
       <div className="intro__grid">
         <div className="intro__item">Proactive risk detection with AI-driven insights</div>
         <div className="intro__item">Ready-to-execute ESG plans tailored to your context</div>
@@ -54,6 +73,13 @@ function HomePage() {
     <main className="page">
       <Hero />
       <IntroSection />
+      <section className="cta-social">
+        <a className="ig-btn" href="https://www.instagram.com/aigs_official1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer">
+          <svg className="ig-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18 6.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
+          Visit Instagram
+        </a>
+        <div className="cta-note">Find more updates on @aigs_official1</div>
+      </section>
       <section id="about-intro" className="section">
         <h2>What is AiGS?</h2>
         <p>
@@ -66,14 +92,7 @@ function HomePage() {
   )
 }
 
-function SolutionsPage() {
-  return (
-    <main className="page section">
-      <h1>Solutions</h1>
-      <p>Browse standardized ESG plans across mitigation, adaptation, and social equity. Coming soon.</p>
-    </main>
-  )
-}
+function SolutionsPage() { return <Solutions /> }
 
 function PlatformPage() {
   return (
@@ -108,6 +127,7 @@ function ContactPage() {
 export default function App() {
   return (
     <>
+      <ViewportCalibrate />
       <GlassNav />
       <Routes>
         <Route path="/" element={<HomePage />} />
