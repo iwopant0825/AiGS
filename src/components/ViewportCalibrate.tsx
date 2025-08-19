@@ -21,6 +21,11 @@ export default function ViewportCalibrate() {
     }
   }, [])
 
+  // Scroll to top on initial mount for reload cases
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
+  }, [])
+
   return null
 }
 

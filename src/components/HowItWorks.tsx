@@ -1,3 +1,5 @@
+import Reveal from './Reveal'
+
 export default function HowItWorks() {
   const steps = [
     {
@@ -27,15 +29,17 @@ export default function HowItWorks() {
   ]
 
   return (
-    <section className="section">
+    <section className="section section--loose">
       <h2>How AiGS Works</h2>
       <div className="hiw-grid">
-        {steps.map((s) => (
-          <article key={s.no} className="card hiw-card">
-            <div className="hiw-card__no">{s.no}</div>
-            <h3 className="hiw-card__title">{s.title}</h3>
-            <p className="muted">{s.body}</p>
-          </article>
+        {steps.map((s, i) => (
+          <Reveal key={s.no} delayMs={i * 100}>
+            <article className="card hiw-card">
+              <div className="hiw-card__no">{s.no}</div>
+              <h3 className="hiw-card__title">{s.title}</h3>
+              <p className="muted">{s.body}</p>
+            </article>
+          </Reveal>
         ))}
       </div>
     </section>

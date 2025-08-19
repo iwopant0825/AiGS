@@ -5,6 +5,7 @@ import ViewportCalibrate from './components/ViewportCalibrate'
 import Solutions from './pages/Solutions'
 import HowItWorks from './components/HowItWorks'
 import ImpactStats from './components/ImpactStats'
+import Footer from './components/Footer'
 import './App.css'
 
 function GlassNav() {
@@ -12,7 +13,7 @@ function GlassNav() {
   return (
     <header className="nav" id="site-header">
       <div className="nav__inner">
-        <Link to="/" className="brand">
+        <Link to="/" className="brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <img src="/AiGS.svg" alt="AiGS" className="brand__logo" />
           <span className="brand__name">AiGS</span>
         </Link>
@@ -42,8 +43,8 @@ function Hero() {
           lines={["Where Climate Action", "Meets Innovation."]}
         />
         <div className="hero__cta">
-          <a href="#intro" className="btn btn--primary">Explore Solutions</a>
-          <a href="#about-intro" className="btn btn--ghost">Learn About AiGS</a>
+          <a href="#intro" className="btn btn--primary" onClick={(e) => { e.preventDefault(); document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }}>Explore Solutions</a>
+          <a href="#about-intro" className="btn btn--ghost" onClick={(e) => { e.preventDefault(); document.getElementById('about-intro')?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }}>Learn About AiGS</a>
         </div>
       </div>
     </section>
@@ -83,24 +84,31 @@ function HomePage() {
   return (
     <main className="page">
       <Hero />
-      <IntroSection />
-      <ImpactStats />
-      <HowItWorks />
-      <section className="cta-social">
-        <a className="ig-btn" href="https://www.instagram.com/aigs_official1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer">
-          <svg className="ig-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18 6.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
-          Visit Instagram
-        </a>
-        <div className="cta-note">Find more updates on @aigs_official1</div>
-      </section>
-      <section id="about-intro" className="section">
-        <h2>What is AiGS?</h2>
-        <p>
-          AiGS finds risks before they find you—then delivers a ready-to-execute plan, live monitoring, and verifiable
-          certification. We combine climate models, socioeconomic data, and on-the-ground signals to prioritize actions that
-          matter most.
-        </p>
-      </section>
+      <div className="surface">
+        <IntroSection />
+        <ImpactStats />
+        <HowItWorks />
+        <section className="cta-social" aria-hidden="true" />
+        <section id="about-intro" className="section">
+          <h2>What is AiGS?</h2>
+          <div className="about-split">
+            <div>
+              <h3>Proactive, productized ESG</h3>
+              <p>
+                We diagnose risks before they surface and ship standardized, ready-to-execute plans. Each plan contains
+                scope, budget ranges, timeline and measurable KPIs — so teams can start fast with clarity.
+              </p>
+            </div>
+            <div>
+              <h3>From plan to verifiable outcomes</h3>
+              <p>
+                Clients execute; we enable partner matching, live monitoring and certification. The result is transparent,
+                verifiable impact that reduces climate inequality.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   )
 }
