@@ -2,6 +2,8 @@ import { Link, NavLink, Route, Routes } from 'react-router-dom'
 import AnimatedText from './components/AnimatedText'
 import ViewportCalibrate from './components/ViewportCalibrate'
 import Solutions from './pages/Solutions'
+import HowItWorks from './components/HowItWorks'
+import ImpactStats from './components/ImpactStats'
 import './App.css'
 
 function GlassNav() {
@@ -45,7 +47,7 @@ function Hero() {
 
 function IntroSection() {
   return (
-    <section id="intro" className="intro">
+    <section id="intro" className="intro intro-narrative">
       <div className="intro__leadwrap">
         <AnimatedText
           as="p"
@@ -59,10 +61,14 @@ function IntroSection() {
           delayPerWordMs={30}
         />
       </div>
-      <div className="intro__grid">
-        <div className="intro__item">Proactive risk detection with AI-driven insights</div>
-        <div className="intro__item">Ready-to-execute ESG plans tailored to your context</div>
-        <div className="intro__item">Live monitoring, evaluation, and verifiable certification</div>
+      <p className="intro__body">
+        AiGS finds risks before they find you. We synthesize climate models, hazard frequency, and
+        socioeconomic vulnerability to prioritize actions. Then we provide standardized, ready-to-execute
+        plans, support co-editing with experts, and enable live monitoring with verifiable certification.
+      </p>
+      <div className="intro-links">
+        <a href="/solutions" className="link">Browse Solutions</a>
+        <a href="/platform" className="link">Learn about the Platform</a>
       </div>
     </section>
   )
@@ -73,6 +79,8 @@ function HomePage() {
     <main className="page">
       <Hero />
       <IntroSection />
+      <ImpactStats />
+      <HowItWorks />
       <section className="cta-social">
         <a className="ig-btn" href="https://www.instagram.com/aigs_official1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer">
           <svg className="ig-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18 6.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
