@@ -1,4 +1,5 @@
 import { Link, NavLink, Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 import AnimatedText from './components/AnimatedText'
 import ViewportCalibrate from './components/ViewportCalibrate'
 import Solutions from './pages/Solutions'
@@ -7,6 +8,7 @@ import ImpactStats from './components/ImpactStats'
 import './App.css'
 
 function GlassNav() {
+  const [open, setOpen] = useState(false)
   return (
     <header className="nav" id="site-header">
       <div className="nav__inner">
@@ -14,7 +16,10 @@ function GlassNav() {
           <img src="/AiGS.svg" alt="AiGS" className="brand__logo" />
           <span className="brand__name">AiGS</span>
         </Link>
-        <nav className="menu">
+        <button className="nav__toggle" aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(v => !v)}>
+          <span className="bar" /><span className="bar" /><span className="bar" />
+        </button>
+        <nav className={`menu ${open ? 'is-open' : ''}`} onClick={() => setOpen(false)}>
           <NavLink to="/" end className={({ isActive }) => `menu__link ${isActive ? 'is-active' : ''}`}>Home</NavLink>
           <NavLink to="/solutions" className={({ isActive }) => `menu__link ${isActive ? 'is-active' : ''}`}>Solutions</NavLink>
           <NavLink to="/platform" className={({ isActive }) => `menu__link ${isActive ? 'is-active' : ''}`}>Platform</NavLink>
