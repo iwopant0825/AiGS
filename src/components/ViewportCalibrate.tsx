@@ -12,12 +12,20 @@ export default function ViewportCalibrate() {
     }
 
     setVar()
+    const onScroll = () => {
+      const nav = document.querySelector('.nav')
+      if (!nav) return
+      if (window.scrollY > 8) nav.classList.add('scrolled')
+      else nav.classList.remove('scrolled')
+    }
     const ro = new ResizeObserver(setVar)
     ro.observe(header)
     window.addEventListener('resize', setVar)
+    window.addEventListener('scroll', onScroll)
     return () => {
       ro.disconnect()
       window.removeEventListener('resize', setVar)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [])
 

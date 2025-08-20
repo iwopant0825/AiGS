@@ -27,6 +27,9 @@ function GlassNav() {
           <NavLink to="/about" className={({ isActive }) => `menu__link ${isActive ? 'is-active' : ''}`}>About Us</NavLink>
           <NavLink to="/contact" className={({ isActive }) => `menu__link ${isActive ? 'is-active' : ''}`}>Contact Us</NavLink>
         </nav>
+        <div className="nav__actions">
+          <Link to="/contact" className="nav__cta">Contact</Link>
+        </div>
       </div>
     </header>
   )
