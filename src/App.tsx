@@ -3,9 +3,11 @@ import { useState } from 'react'
 import AnimatedText from './components/AnimatedText'
 import ViewportCalibrate from './components/ViewportCalibrate'
 import Solutions from './pages/Solutions'
+import Platform from './pages/Platform'
+import About from './pages/About'
+import Contact from './pages/Contact'
 import HowItWorks from './components/HowItWorks'
 import ImpactStats from './components/ImpactStats'
-import Footer from './components/Footer'
 import './App.css'
 
 function GlassNav() {
@@ -43,7 +45,7 @@ function Hero() {
         <AnimatedText
           as="h1"
           className="hero__title"
-          lines={["Where Climate Action", "Meets Innovation."]}
+          lines={["Where Climate", "Action", "Meets Innovation."]}
         />
         <div className="hero__cta">
           <a href="#intro" className="btn btn--primary" onClick={(e) => { e.preventDefault(); document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }}>Explore Solutions</a>
@@ -117,36 +119,9 @@ function HomePage() {
 }
 
 function SolutionsPage() { return <Solutions /> }
-
-function PlatformPage() {
-  return (
-    <main className="page section">
-      <h1>Platform</h1>
-      <p>Sign in to access dashboards, live KPIs, and certification workflows. Placeholder for now.</p>
-    </main>
-  )
-}
-
-function AboutPage() {
-  return (
-    <main className="page section">
-      <h1>About Us</h1>
-      <p>
-        We are building an AI-powered ESG platform to reduce climate inequality by making high-quality action plans
-        accessible and verifiable.
-      </p>
-    </main>
-  )
-}
-
-function ContactPage() {
-  return (
-    <main className="page section">
-      <h1>Contact Us</h1>
-      <p>Email: hello@aigs.example</p>
-    </main>
-  )
-}
+function PlatformPage() { return <Platform /> }
+function AboutPage() { return <About /> }
+function ContactPage() { return <Contact /> }
 
 export default function App() {
   return (
